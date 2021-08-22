@@ -30,7 +30,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "movie_theatre_id", nullable = false)
-   // private MovieTheatre movieTheatre;
+    private MovieTheatre movieTheatre;
 
     public User getUser() {
         return user;
@@ -40,13 +40,13 @@ public class Booking {
         this.user = user;
     }
 
-  //  public MovieTheatre getMovieTheatre() {
-       // return movieTheatre;
-  //  }
+    public MovieTheatre getMovieTheatre() {
+        return movieTheatre;
+    }
 
-  //  public void setMovieTheatre(MovieTheatre movieTheatre) {
-    //    this.movieTheatre = movieTheatre;
-   // }
+    public void setMovieTheatre(MovieTheatre movieTheatre) {
+        this.movieTheatre = movieTheatre;
+    }
 
     public int getBookingId() {
         return bookingId;

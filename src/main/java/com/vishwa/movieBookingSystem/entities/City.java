@@ -21,6 +21,9 @@ public class City {
 
     @Column(length = 20, nullable = false)
     private String cityName;
+    /**
+     * Default fetch strategy  will be lazy
+     **/
 
     @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
     @JsonBackReference

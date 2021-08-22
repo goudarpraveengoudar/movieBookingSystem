@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
 @Entity
 public class Status {
 
@@ -19,7 +18,7 @@ public class Status {
     public Status() {
     }
 
-    public Status( String statusName) {
+    public Status(String statusName) {
         this.statusName = statusName;
     }
 
