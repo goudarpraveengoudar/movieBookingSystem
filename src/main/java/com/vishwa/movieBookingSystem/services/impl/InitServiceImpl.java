@@ -22,43 +22,42 @@ import java.util.List;
 public class InitServiceImpl implements InitService {
     @Autowired
     //private CityDao cityDao; //inClass
-    private CityService cityService ;
+    private CityService cityService;
 
     @Autowired
-    private UserTypeDao userTypeDao ;
+    private UserTypeDao userTypeDao;
 
     @Autowired
-    private StatusService statusService ;
+    private StatusService statusService;
 
     @Autowired
-    private MovieService movieService ;
+    private MovieService movieService;
 
     @Autowired
-    private UserDao userDao ;
+    private UserDao userDao;
 
     @Autowired
-    private TheatreDao theatreDao ;
+    private TheatreDao theatreDao;
 
     @Autowired
-    private MovieTheatreDao movieTheatreDao ;
+    private MovieTheatreDao movieTheatreDao;
 
     @Autowired
-    private BookingDao bookingDao ;
+    private BookingDao bookingDao;
 
     /**
      * Cooking data
-     *
+     * <p>
      * Define and initialize together
-     *
+     * <p>
      * int i ; -- defining a variable
      * i=5 ; -- assigning a value
-     *
-     *
+     * <p>
+     * <p>
      * int i = 5 ; -- define and assign at the same time
      */
-    List<Status> statuses = Arrays.asList(new Status("UPCOMING") ,
-            new Status("RELEASED"),new Status("BLOCKED"));
-
+    List<Status> statuses = Arrays.asList(new Status("UPCOMING"),
+            new Status("RELEASED"), new Status("BLOCKED"));
 
 
     @Override
@@ -70,7 +69,7 @@ public class InitServiceImpl implements InitService {
         /**
          * Add cities
          */
-      //List<City> cities = new ArrayList<>(); //inClass
+        //List<City> cities = new ArrayList<>(); //inClass
         //cities.add(new City("Patna"));//inClass
         //cities.add(new City("Bengaluru"));//inClass
         //cities.add(new City("Kolkata"));//inClass
@@ -117,7 +116,7 @@ public class InitServiceImpl implements InitService {
 
     }
 
-    private void createMovies() {
+    private void createMovies() { 
         Movie movie1 = new Movie();
         movie1.setMovieName("Movie1_Name");
         movie1.setTrailerUrl("Movie1_T_URL");
@@ -125,9 +124,26 @@ public class InitServiceImpl implements InitService {
         movie1.setMovieDescription("Movie1 description");
         movie1.setDuration(120);
         movie1.setTrailerUrl("Movie1_T_URL");
-        movie1.setReleaseDate(LocalDateTime.of(2018,4,27,5,30));
+        movie1.setReleaseDate(LocalDateTime.of(2018, 4, 27, 5, 30));
         movie1.setCoverPhotoUrl("Movie1_C_URL");
+
+        Movie movie2  = new Movie();
+        movie2.setMovieName("Movie2_Name");
+        movie2.setTrailerUrl("Movie2_T_URL");
+        movie2.setStatus(statuses.get(1));
+        movie2.setMovieDescription("Movie2 description");
+        movie2.setDuration(120);
+        movie2.setTrailerUrl("Movie2_T_URL");
+        movie2.setReleaseDate(LocalDateTime.of(2018, 5, 27, 5, 30));
+        movie2.setCoverPhotoUrl("Movie2_C_URL");
+
         movieService.acceptMovieDetails(movie1);
+
+        movieService.acceptMovieDetails(movie2);
+
+
+
+
     }
 
     private void createStatuses() {
@@ -142,7 +158,7 @@ public class InitServiceImpl implements InitService {
         userTypes.add(new UserType("Customer"));
         userTypes.add(new UserType("Admin"));
 
-        userTypes.forEach(userType ->  {
+        userTypes.forEach(userType -> {
             userTypeDao.save(userType);
         });
     }

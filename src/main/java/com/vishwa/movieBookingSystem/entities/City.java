@@ -2,6 +2,8 @@ package com.vishwa.movieBookingSystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -68,5 +70,18 @@ public class City {
     @Override
     public String toString() {
         return "City{" + "cityId=" + cityId + ", cityName='" + cityName + '\'' + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return Objects.equals(cityName, city.cityName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cityName);
     }
 }
